@@ -151,9 +151,6 @@ transition: opacity .1s linear;
 }
 
 /* Add some padding inside the card container */
-.container {
-    padding: 2px 16px;
-}
 #main {
     padding-top: 115px;
     min-height: 87vh;

@@ -5,7 +5,7 @@
 	<?
 	include_once("includes/head.php");
 	?>
-<link rel="stylesheet" type="text/css" href="infosite.css">
+<link rel="stylesheet" type="text/css" href="infositee.css">
 </head>
 <body>
 <!-- HEADER -->

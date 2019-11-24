@@ -13,14 +13,14 @@
 
 -- Дамп структуры для таблица bcbase.address
 CREATE TABLE IF NOT EXISTS `address` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `city_id` int(11) NOT NULL AUTO_INCREMENT,
   `city` varchar(50) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`city_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- Дамп данных таблицы bcbase.address: ~6 rows (приблизительно)
 /*!40000 ALTER TABLE `address` DISABLE KEYS */;
-INSERT INTO `address` (`id`, `city`) VALUES
+INSERT INTO `address` (`city_id`, `city`) VALUES
 	(1, 'Актобе'),
 	(2, 'Нур-Султан'),
 	(3, 'Шымкент'),
@@ -31,15 +31,15 @@ INSERT INTO `address` (`id`, `city`) VALUES
 
 -- Дамп структуры для таблица bcbase.category
 CREATE TABLE IF NOT EXISTS `category` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `category_id` int(11) NOT NULL AUTO_INCREMENT,
   `category_name` varchar(50) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`category_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8;
 
 -- Дамп данных таблицы bcbase.category: ~40 rows (приблизительно)
 /*!40000 ALTER TABLE `category` DISABLE KEYS */;
-INSERT INTO `category` (`id`, `category_name`) VALUES
-	(1, 'Категории'),
+INSERT INTO `category` (`category_id`, `category_name`) VALUES
+	(1, 'Искусство и фотография'),
 	(2, 'Аудиокниги'),
 	(3, 'Аудиозагрузки'),
 	(4, 'Биографии и воспоминания'),
@@ -77,63 +77,47 @@ INSERT INTO `category` (`id`, `category_name`) VALUES
 	(36, 'Путешествия'),
 	(37, 'Вестерны'),
 	(38, 'Женские романы'),
-	(39, 'Искусство и фотография'),
-	(40, 'Другое');
+	(39, 'Другое');
 /*!40000 ALTER TABLE `category` ENABLE KEYS */;
 
 -- Дамп структуры для таблица bcbase.regbook
 CREATE TABLE IF NOT EXISTS `regbook` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `regbook_id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL DEFAULT '0',
   `avtor` varchar(50) NOT NULL DEFAULT '0',
   `category` varchar(50) NOT NULL DEFAULT '0',
   `status` varchar(50) NOT NULL DEFAULT '0',
   `commentaries` varchar(50) NOT NULL DEFAULT '0',
   `city` varchar(50) NOT NULL,
-  `images` varchar(50) NOT NULL,
   `mesto` varchar(50) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+  `email` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`regbook_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы bcbase.regbook: ~19 rows (приблизительно)
+-- Дамп данных таблицы bcbase.regbook: ~1 rows (приблизительно)
 /*!40000 ALTER TABLE `regbook` DISABLE KEYS */;
-INSERT INTO `regbook` (`id`, `name`, `avtor`, `category`, `status`, `commentaries`, `city`, `images`, `mesto`) VALUES
-	(1, 'Harry Potter', 'Juan Rouling', 'Фантастика', 'Доступно', '', '', '0', 'Дом 52 Квартира 51'),
-	(2, 'dsadasdas', 'dwadawdasdass', '', '', '', '', '0', 'dwadwaawd'),
-	(3, 'dsadasdawdwa', 'dwadawdwadaw', 'dwaddawdwa', '', '', '', '0', 'dawadadsdsa'),
-	(4, 'dwadwaawdwda', 'wdaawdawdawd', 'dawdwaawdawd', '', '', '', '0', 'gfsga'),
-	(5, 'dsdadasasd', 'sdasdaasdasd', 'asdasdsdaasd', '', '', '', '0', 'dsadasds'),
-	(6, '', '', '', '', '', '', '0', 'dasdasdas'),
-	(7, 'dwadawdaw', 'wdaawdawd', '', '', '', '', '0', 'dsadasads'),
-	(8, 'dawawdawd', 'dawdawad', '', '', '', '', '0', ''),
-	(9, 'ddwaadwadw', 'dwadwaawdadw', '', '', '', '', '0', ''),
-	(12, 'dwaawdawd', 'dwaawdawd', '', '', '', '', '0', ''),
-	(13, 'dwadwadaw', 'dawdwaadw', '', '', '', '', '0', ''),
-	(14, 'dddddddddd', 'dddddddddddd', '', '', '', '', '0', ''),
-	(15, 'dwaawdawdawdawdawd', 'awdawdawdawdawd', '', '', 'dwdawawdawd', '', '0', ''),
-	(16, 'dawdawadwawd', 'dwawdawadwadw', '', '', 'dwaawdawdawdawdawd', '', '0', ''),
-	(17, 'ddddddddddddddd', 'dddddddddddddddd', '', '', 'dddddddddddddddddddd', '', '0', ''),
-	(18, 'dddddsss', 'ddddssss', '', '', 'dsdsdsdsdsds', '', '0', ''),
-	(19, 'wwwwwwwwwwww', 'aaaaaaaaaaaaaa', '', '', 'dadddddddddddddddddd', '', '0', ''),
-	(20, 'dwawdadwa', 'dwadwadwa', 'Аудиокниги', 'Доступно', 'dwaadwwdadaw', 'Нур-Султан', '0', ''),
-	(21, 'dawdaw', 'dawawdwd', 'Тайны и триллеры', 'Постоянная коллекция', 'dwadwadwadwa', 'Караганда', '0', 'dwaawdwad');
+INSERT INTO `regbook` (`regbook_id`, `name`, `avtor`, `category`, `status`, `commentaries`, `city`, `mesto`, `email`) VALUES
+	(1, 'qwerwe', 'qwerqwer', '1', '1', 'qwerqwer', '1', 'qwerqewr', NULL),
+	(2, 'qwerty', 'qwerty', 'Журналы', 'В списке чтения', 'qwerty', 'Нур-Султан', 'qwerty', 'qwerty@mail.ru'),
+	(3, 'wwwww', 'wwwww', 'Художественная литература', 'Доступно', 'wwwww', 'Шымкент', 'wwwww', 'wwwww@mail.ru'),
+	(4, 'wadwadwa', 'wadawdawd', 'Документальная литература', 'Доступно', 'dwawadwad', 'Шымкент', 'dwaawdawd', 'wadwawad@mail.ru');
 /*!40000 ALTER TABLE `regbook` ENABLE KEYS */;
 
 -- Дамп структуры для таблица bcbase.register
 CREATE TABLE IF NOT EXISTS `register` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `reg_id` int(11) NOT NULL AUTO_INCREMENT,
   `login` varchar(50) NOT NULL DEFAULT '0',
   `pass` varchar(50) NOT NULL DEFAULT '0',
   `name` varchar(50) NOT NULL DEFAULT '0',
   `email` varchar(50) NOT NULL DEFAULT '0',
   `tel` varchar(50) NOT NULL DEFAULT '0',
   `address` varchar(50) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`reg_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
 
 -- Дамп данных таблицы bcbase.register: ~19 rows (приблизительно)
 /*!40000 ALTER TABLE `register` DISABLE KEYS */;
-INSERT INTO `register` (`id`, `login`, `pass`, `name`, `email`, `tel`, `address`) VALUES
+INSERT INTO `register` (`reg_id`, `login`, `pass`, `name`, `email`, `tel`, `address`) VALUES
 	(2, 'wwww', '25d55ad283aa400af464c76d713c07ad', '', 'bababa@gmail.com', '+77054724265', ''),
 	(3, 'Babau', '25d55ad283aa400af464c76d713c07ad', '', 'bababa@gmail.com', '+77054724268', ''),
 	(4, 'Baur228', '25d55ad283aa400af464c76d713c07ad', 'Bauyrzzhan', 'bulteev.b@mail.ru', '+77054721337', ''),
@@ -157,20 +141,19 @@ INSERT INTO `register` (`id`, `login`, `pass`, `name`, `email`, `tel`, `address`
 
 -- Дамп структуры для таблица bcbase.status
 CREATE TABLE IF NOT EXISTS `status` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `status_id` int(11) NOT NULL AUTO_INCREMENT,
   `status_name` varchar(50) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`status_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- Дамп данных таблицы bcbase.status: ~6 rows (приблизительно)
 /*!40000 ALTER TABLE `status` DISABLE KEYS */;
-INSERT INTO `status` (`id`, `status_name`) VALUES
-	(1, 'Все статусы'),
+INSERT INTO `status` (`status_id`, `status_name`) VALUES
+	(1, 'В списке чтения'),
 	(2, 'Доступно'),
 	(3, 'Постоянная коллекция'),
 	(4, 'Зарезервировано'),
-	(6, 'Путешествует'),
-	(7, 'В списке чтения');
+	(6, 'Путешествует');
 /*!40000 ALTER TABLE `status` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

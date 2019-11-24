@@ -10,8 +10,8 @@ if(isset($_POST['regknopka'])) {
 	$status=trim($_POST['status']);
 	$city=trim($_POST['city']);
 	$mesto=trim($_POST['mesto']);
-
-$sql="INSERT INTO regbook(name, avtor, commentaries, category, status, city, mesto) VALUES ('$name','$avtor','$commentaries','$category', '$status','$city', '$mesto')";
+	$email=trim($_POST['email']);
+$sql="INSERT INTO regbook(name, avtor, commentaries, category, status, city, mesto, email) VALUES ('$name','$avtor','$commentaries','$category', '$status','$city', '$mesto', '$email')";
 	$query=mysqli_query($link, $sql);
 	if($query){
 		$com="Вы успешно зарегистрировали книгу<a href='magaz.php'>Перейти к списку</a>";
@@ -20,35 +20,16 @@ $sql="INSERT INTO regbook(name, avtor, commentaries, category, status, city, mes
 		$com="error";
 	}
 }
- // IMGDOWNLOAD
-  // Initialize message variable
-  $msg = "";
-
-  // If upload button is clicked ...
-  if (isset($_POST['regknopka'])) {
-  	// Get image name
-  	$image = $_FILES['image']['name'];
-  	// image file directory
-  	$target = "img/".basename($image);
-
-  	$sql = "INSERT INTO regbook (images) VALUES ('$image')";
-  	// execute query
-  	mysqli_query($link, $sql);
-
-  	if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
-  		$msg = "Загружена";
-  	}else{
-  		$msg = "Не удалась";
-  	}
-  }
-  // $result = mysqli_query($link, "SELECT * FROM images");
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="regbookk.css">
+	<link rel="stylesheet" type="text/css" href="regbook.css">
 </head>
 <body>
 	<style>
@@ -92,10 +73,14 @@ $sql="INSERT INTO regbook(name, avtor, commentaries, category, status, city, mes
 			<div class="wrap-input100 validate-input">
 			<input type="text" name="avtor" placeholder="Автор">
 		</div>
+			<div class="wrap-input100 validate-input">
+			<input type="text" name="email" placeholder="Почта">
+		</div>
 					<div class="wrap-input100 validate-input">
 			<input type="text" name="mesto" placeholder="Место встречи">
 		</div>
 			<select name="category" style="width: 170px;">
+				<option>Категории</option>
 		<?
 		$categories=getCategory();
 		foreach ($categories as $category) {
@@ -111,6 +96,7 @@ $sql="INSERT INTO regbook(name, avtor, commentaries, category, status, city, mes
 <br>
 	
 	<select name="status" style="width: 170px;">
+		<option>Все статусы</option>
 		<?
 		$statuses=getStatus();
 		foreach ($statuses as $status) {
@@ -130,7 +116,6 @@ $sql="INSERT INTO regbook(name, avtor, commentaries, category, status, city, mes
 		$cities=getAddress();
 		foreach ($cities as $city) {
 		?>
-			
 			<option><?=$city['city']?></option></br>
 
 		<?

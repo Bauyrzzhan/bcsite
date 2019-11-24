@@ -113,7 +113,7 @@ input {
 
 * {
     margin: auto;
-    padding: 5px;
+    padding: 0px;
     box-sizing: border-box;
 }
 
@@ -258,7 +258,7 @@ iframe {
 }
 
 .wrap-login100 {
-  width: 500px;
+  width: 450px;
   background: #fff;
   border-radius: 10px;
   overflow: hidden;

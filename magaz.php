@@ -47,9 +47,7 @@
 
     <div class="textknigi">
         <p>Поиск за книгами - важная часть буккроссинга. Ниже приведен список стран с книгами "<i>на воле</i>"! После того, как книга зарегистрирована, пользователь имеет возможность сделать примечание к выпуску, указав, где точно (или приблизительно) он оставил книгу. Вы можете просмотреть эти <i>недавние "выпуски"</i> по стране, области, городу и зоне кроссинга.</p> 
-    </div>
-
-    
+    </div> 
     <div>
       <table class="table table-sm table-striped table-part-1">
           <tbody><tr>
@@ -71,7 +69,7 @@
       
           <tr>
               <td valign="top">
-                  <a href="#">Алма-Ата</a>
+                  <a href="bookinfo.php">Алма-Ата</a>
                   
               </td>
               <td class="text-right" valign="top">
@@ -83,7 +81,7 @@
       
           <tr>
               <td valign="top">
-                  <a href="#">Актобе</a>
+                  <a href="bookinfo.php">Актобе</a>
                   
               </td>
               <td class="text-right" valign="top">
@@ -95,7 +93,7 @@
       
           <tr>
               <td valign="top">
-                  <a href="#">Шымкент</a>
+                  <a href="bookinfo.php">Шымкент</a>
                   
               </td>
               <td class="text-right" valign="top">
@@ -107,7 +105,7 @@
       
           <tr>
               <td valign="top">
-                  <a href="#">Костанай</a>
+                  <a href="bookinfo.php">Костанай</a>
                   
               </td>
               <td class="text-right" valign="top">
@@ -118,7 +116,7 @@
       
           <tr>
               <td valign="top">
-                  <a href="#">Кызылорда</a>
+                  <a href="bookinfo.php">Кызылорда</a>
                   
               </td>
               <td class="text-right" valign="top">
@@ -130,7 +128,7 @@
       
           <tr>
               <td valign="top">
-                  <a href="#">Павлодар</a>
+                  <a href="bookinfo.php">Павлодар</a>
                   
               </td>
               <td class="text-right" valign="top">
@@ -141,7 +139,7 @@
       
           <tr>
               <td valign="top">
-                  <a href="#">Петропавловск</a>                  
+                  <a href="bookinfo.php">Петропавловск</a>                  
               </td>
               <td class="text-right" valign="top">
                 
@@ -152,7 +150,7 @@
       
           <tr>
               <td valign="top">
-                  <a href="#">Талдыкорган</a>
+                  <a href="bookinfo.php">Талдыкорган</a>
                   
               </td>
               <td class="text-right" valign="top">
@@ -163,7 +161,7 @@
       
           <tr>
               <td valign="top">
-                  <a href="#">Тараз</a>
+                  <a href="bookinfo.php">Тараз</a>
                   
               </td>
               <td class="text-right" valign="top">
@@ -174,7 +172,7 @@
       
           <tr>
               <td valign="top">
-                  <a href="#">Туркестан</a>
+                  <a href="bookinfo.php">Туркестан</a>
                   
               </td>
               <td class="text-right" valign="top">
@@ -186,7 +184,7 @@
       
           <tr>
               <td valign="top">
-                  <a href="#">Уральск</a>
+                  <a href="bookinfo.php">Уральск</a>
                   
               </td>
               <td class="text-right" valign="top">
@@ -197,7 +195,7 @@
       
           <tr>
               <td valign="top">
-                  <a href="#">Усть-Каменегорск</a>
+                  <a href="bookinfo.php">Усть-Каменегорск</a>
                   
               </td>
               <td class="text-right" valign="top">
@@ -208,7 +206,7 @@
       
           <tr>
               <td valign="top">
-                  <a href="#">Семей</a>
+                  <a href="bookinfo.php">Семей</a>
                   
               </td>
               <td class="text-right" valign="top">

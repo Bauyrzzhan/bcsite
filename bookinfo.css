@@ -322,7 +322,6 @@ body {
     line-height: 1.5;
     color: #212529;
     text-align: left;
-    background-color: #fff;
 }
 #main {
     padding-top: 115px;
@@ -330,4 +329,8 @@ body {
     overflow: hidden;
     text-overflow: ellipsis;
 }
-
+.book-list-detail {
+    font-size: 18px;
+    line-height: 1.2em;
+    width: auto;
+}

@@ -6,7 +6,7 @@ include_once ('includes/func.php');
 <head>
 <title>Bookcrossing</title>
 <?include_once('includes/head.php')?>
-<link rel="stylesheet" type="text/css" href="bookinfo.css">
+<link rel="stylesheet" type="text/css" href="bookinfoo.css">
 </head>
 <body>
 <!-- HEADER -->
@@ -46,30 +46,31 @@ include_once ('includes/func.php');
 
     
     <a style="position:absolute;top:20px;right:10px;" href="https://www.bookcrossing.com/hunt/137/958/33811/858052?format=rss" target="_blank"><i class="fas fa-rss"></i></a>
-        
+   <h1 style="margin-left: -235px;">Последняя регистрация:</h1>     
 <?
     $getBooks=getInfo('regbook');
     foreach ($getBooks as $gb) {
         # code..
 ?>
     <div style="padding:5px;">
-        <div><h3></h3>Место встречи: <?=$gb['mesto']?></div><div class="clearfix"></div>
+
+        <div style="margin-left: 25px;"><h3>Место встречи: <?=$gb['mesto']?></h3></div><div class="clearfix"></div>
         
     </div>
     
         
         <div class="book-list">
             
-                <div class="book-list-row">
+                <div class="book-list-row" style="margin-left: 50px;">
                     <div class="book-list-cover book book-md">
                         <img src="https://d3nc0ar6dmrp7n.cloudfront.net/images/journalpics/157/96/cover/100_15710196.jpg" alt="" title="Собрание сочинений в пяти томах. Том 5" id="img15710196">
                     </div>
                     <div class="book-list-detail">
-                        <h5><a href="#"><?=$gb['name']?></a></h5>
+                        <h5>Заголовок: <a href="#"><?=$gb['name']?></a></h5>
                         Автор: <a href="#"><?=$gb['avtor']?></a> Категория:<a href="#">
                             <?=$gb['category']?></a></a> Статус:<a href="#">
                             <?=$gb['status']?></a><br>
-                        Выпущено пользователем <a title="SVET88" href="/mybookshelf/SVET88/">[Логин создателя поста]</a><br>
+                        Выпущено пользователем <a title="SVET88" href="/mybookshelf/SVET88/"><?=$gb['email']?></a><br>
                         <span class="bookrating" title="10 рейтинг этого пользователя"><i class="fas fa-star gold"></i><i class="fas fa-star gold"></i><i class="fas fa-star gold"></i><i class="fas fa-star gold"></i><i class="fas fa-star gold"></i><i class="fas fa-star gold"></i><i class="fas fa-star gold"></i><i class="fas fa-star gold"></i><i class="fas fa-star gold"></i><i class="fas fa-star gold"></i></span><br>
                         
                     </div>
