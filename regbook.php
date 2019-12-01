@@ -1,8 +1,19 @@
 <?
 include_once("includes/func.php");
 include_once("includes/link.php");
+session_start();
+protect_page();
 
-if(isset($_POST['regknopka'])) {
+if(isset($_POST['regknopka'])){
+	if(isset($_POST['g-recaptcha-response'])) {
+
+		$url_to_google_api = "https://www.google.com/recaptcha/api/siteverify";
+		$secret_key = '6LdFK8UUAAAAACtHxPDKY5TOTYDePb57XttwDRR9';
+		$query = $url_to_google_api . '?secret=' . $secret_key . '&response=' . $_POST['g-recaptcha-response'] . '&remoteip=' . $_SERVER['REMOTE_ADDR'];
+		$data = json_decode(file_get_contents($query));
+
+
+
 	$name=trim($_POST['name']);
 	$avtor=trim($_POST['avtor']);
 	$commentaries=trim($_POST['commentaries']);
@@ -11,27 +22,34 @@ if(isset($_POST['regknopka'])) {
 	$city=trim($_POST['city']);
 	$mesto=trim($_POST['mesto']);
 	$email=trim($_POST['email']);
+	if(empty($name) || empty($avtor) || empty($commentaries) || empty($category) || empty($status) || empty($email)) {
+		$com="Не все поля заполнены.";
+	}
+
 $sql="INSERT INTO regbook(name, avtor, commentaries, category, status, city, mesto, email) VALUES ('$name','$avtor','$commentaries','$category', '$status','$city', '$mesto', '$email')";
 	$query=mysqli_query($link, $sql);
-	if($query){
+	if($query && $data->success){
 		$com="Вы успешно зарегистрировали книгу<a href='magaz.php'>Перейти к списку</a>";
 	}
+	}
 	else{
-		$com="error";
+		$com="Произошла ошибка при регистрации книги";
 	}
 }
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
 	<link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
-	<title></title>
-	<link rel="stylesheet" type="text/css" href="regbook.css">
+	<title>Bookcrossing</title>
+	<link rel="stylesheet" type="text/css" href="css/regboook.css">
+	<script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 <body>
+
 	<style>
 		body {
 		margin: 0;
@@ -86,7 +104,7 @@ $sql="INSERT INTO regbook(name, avtor, commentaries, category, status, city, mes
 		foreach ($categories as $category) {
 		?>
 			
-			<option><?=$category['category_name']?></option>
+			<option value="<?=$category['category_id']?>"><?=$category['category_name']?></option>
 	
 		<?
 			}
@@ -102,7 +120,7 @@ $sql="INSERT INTO regbook(name, avtor, commentaries, category, status, city, mes
 		foreach ($statuses as $status) {
 		?>
 			
-			<option><?=$status['status_name']?></option></br>
+			<option value="<?=$status['status_id']?>"><?=$status['status_name']?></option></br>
 
 		<?
 			}
@@ -112,11 +130,12 @@ $sql="INSERT INTO regbook(name, avtor, commentaries, category, status, city, mes
 	<br>
 	<br>
 		<select name="city" style="width: 170px;">
+			<option>Город</option>
 		<?
 		$cities=getAddress();
 		foreach ($cities as $city) {
 		?>
-			<option><?=$city['city']?></option></br>
+			<option value="<?=$city['city_id']?>"><?=$city['city']?></option></br>
 
 		<?
 			}
@@ -124,12 +143,12 @@ $sql="INSERT INTO regbook(name, avtor, commentaries, category, status, city, mes
 	</select>
 	<br/>
 	<br/>
-	<input name="imgdown" type="file">
+	<input name="image" type="file">
 
 			<div class="form-group row">
         <textarea class="comments-option" name="commentaries" placeholder="Комментарии"></textarea>
     </div>
-
+<div class="g-recaptcha" data-sitekey="6LdFK8UUAAAAAIm6p4wCsXIO7CXN5cMUw0NYNNgP"></div>
 								<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>

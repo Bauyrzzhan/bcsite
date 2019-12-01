@@ -1,9 +1,20 @@
+<?
+session_start();
+include_once('includes/func.php');
+if (isset($_GET['logout'])) {
+	session_destroy();
+	unset($_SESSION['user_id']);
+	header("location:bookcrossing.php");
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
 	<?
 	include_once("includes/head.php");
 	?>
+	<link rel="stylesheet" type="text/css" href="bookcrossingg.css">
 </head>
 <body>
 <!-- HEADER -->
@@ -19,15 +30,14 @@
 			  <a class="dropbtn nav__link"  href="#">Главное</a>
 			  	<div class="dropdown-content">
 			    	<a href="magaz.php">Поиск</a>
-			    	<a href="#">Карта</a>
-			    	<a href="infosite.php">О нас</a>
-			    	<a href="regbook.php">Зарегистрировать книгу</a>
+			    	<a href="regbook.php" style="text-align:center;">Зарегистрировать книгу</a>
 			  </div>
 			</div>
 <!-- END DROPDOWN -->
-			<a class="nav__link" href="#" data-scroll="#book">Разделы</a>
 			<a class="nav__link" href="#" data-scroll="#Citati">Цитаты</a>
-			<a class="nav__link" href="#" data-scroll="#Contacts">Контакты</a>
+			<a class="nav__link" href="#" data-scroll="#book">Разделы</a>
+			<a class="nav__link" href="contact.php">Контакты</a>
+			<a class="nav__link" href="infosite.php">О нас</a>
 
 		</nav>
 		</div>
@@ -39,11 +49,29 @@
 	<div class="intro" id="intro">
 		<div class="container">
 			<div class="intro__inner">
-			<h1 class="intro__title">Добро пожаловать во всемирную библиотеку!</h1>
+			<h1 class="intro__title">Добро пожаловать в библиотеку!</h1>
 			<h2 class="intro__subtitle">Книга, которая хороша написана, всегда кажется мне слишком короткой - Джейн Остин</h2>
+			<?
+				if (!isset($_SESSION['user_id'])) {
+					
+				
+			?>
 			<center><a href="reg.php" class="btn btn--red">Зарегистрироваться</a></center>
 		</br>
 			<center><a href="aut.php" class="btn btn--blue">Войти</a></center>
+			<?
+				}
+				else {
+					$getacc = getAcc(); 
+					foreach ($getacc as $ga) {?>
+					<p class="privets">Привет <i><?=$ga['login']?></i></p>	<center><button><a href="bookcrossing.php?logout='0'" class="btn btn--blue">Выход</a></button></center>
+
+					<?
+					}
+					
+				}
+			?>
+			
 			</div>
 		</div>
 	</div>

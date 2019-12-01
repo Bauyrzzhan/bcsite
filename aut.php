@@ -1,9 +1,8 @@
-	<?
-	include_once("includes/head.php");
-	?>
 <?
+session_start();
 include_once('includes/link.php');
-
+?>
+<?
 if (isset($_POST['aut'])) {
   $username = trim(($_POST['login']));
   $password = trim(($_POST['pass']));
@@ -14,13 +13,13 @@ if (isset($_POST['aut'])) {
   if (empty($password)) {
     echo "Необходим пароль";
   }
-
   if (count($errors) == 0) {
     $password = md5($password);
     $query = "SELECT * FROM register WHERE login='$username' AND pass='$password'";
     $results = mysqli_query($link, $query);
+    $row = mysqli_fetch_assoc($results);
     if (mysqli_num_rows($results) == 1) {
-      $_SESSION['username'] = $username;
+      $_SESSION['user_id'] = $row['reg_id'];
       header('location: bookcrossing.php');
     }else {
       echo "Неправильная комбинация имени пользователя и пароля";
@@ -32,9 +31,12 @@ if (isset($_POST['aut'])) {
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
-	<link rel="stylesheet" type="text/css" href="regv2.css">
-
+	<title>Bookcrossing</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/regv2.css">
+	<link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
 </head>
 <body>
 	<style>

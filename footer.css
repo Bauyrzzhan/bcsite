@@ -1,0 +1,52 @@
+/*FOOTER==========================*/
+.footer{
+	background-color: #3a3e64;
+}
+.footer__inner{
+	padding: 70px 0;
+	display: flex;
+	flex-wrap: wrap;
+}
+.footer__block{
+	width: 33.33333%;
+	padding: 0 15px;
+	text-align: center;
+
+}
+.footer__title{
+	margin-bottom: 10px;
+	font-size: 14px;
+	font-weight: 700;
+	color: #fff;
+	text-transform: uppercase;
+	font-family: Roboto Slab;
+}
+.footer__address{
+	font-size: 14px;
+	font-style: normal;
+	color:rgba(255, 255, 255, .5);
+	line-height: 1.5;
+}
+.footer__text{
+	font-size: 14px;
+	font-style: normal;
+	color:rgba(255, 255, 255, .5);
+	line-height: 1.5;
+}
+/*COPYRIGHT
+=========================*/
+.copyright{
+	background-color: #313454;
+	padding: 20px 0;
+}
+.copyright__text{
+	text-align: center;
+	font-size: 14px;
+	color: #808080;
+}
+.copyright__text span{
+	color: #fff;
+}
+.privets{
+	text-align: center;
+}
